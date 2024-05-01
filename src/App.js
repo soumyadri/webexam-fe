@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Registration } from './Containers/Registration';
 import { NavBar } from './Containers/NavBar';
+import { Home } from './Containers/Home';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <NavBar />
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Registration />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/registration' element={<Registration />} />
           </Routes>
         </BrowserRouter>
       </div>

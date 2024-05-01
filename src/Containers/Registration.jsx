@@ -38,6 +38,7 @@ export const Registration = () => {
             };
         };
         const allKeysArePresent = hasAllKeys(payload);
+        console.log(allKeysArePresent);
         return;
     };
 
