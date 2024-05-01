@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Input, Link, Button, Select, SelectSection, SelectItem } from "@nextui-org/react";
+import { Input, Link, Button, Select, SelectItem } from "@nextui-org/react";
 import { useFormContext } from 'react-hook-form';
 import RegistrationContext from '../Context/RegistrationContext';
 
-export const SignUp = ({ handleChange, onSubmit, setSelected }) => {
-    const { register, setValue, formState: { isValid, isDirty } } = useFormContext();
+export const SignUp = () => {
+    const { register, formState: { isValid, isDirty } } = useFormContext();
     const { handleChange, onSubmit, setSelected } = useContext(RegistrationContext);
     return (
         <form className="flex flex-col gap-4">

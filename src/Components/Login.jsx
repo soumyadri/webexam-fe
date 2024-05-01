@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import RegistrationContext from '../Context/RegistrationContext';
 
 export const Login = () => {
-    const { register, setValue, formState: { isDirty, isValid } } = useFormContext();
+    const { register, formState: { isDirty, isValid } } = useFormContext();
     const { handleChange, onSubmit, setSelected } = useContext(RegistrationContext);
     return (
         <form className="flex flex-col gap-4">
