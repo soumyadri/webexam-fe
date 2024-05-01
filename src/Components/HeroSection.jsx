@@ -12,7 +12,6 @@ const imagesList = [HomePagePhoto, MeetingsImage, MathsImage, CopyPenImage, Book
 const text = 'take and give exams';
 
 export const HeroSection = () => {
-    console.log('Render');
     const [number, setNumber] = React.useState(1);
     const [imageSequence, setImageSequence] = useState(0);
     const highlightText = () => {

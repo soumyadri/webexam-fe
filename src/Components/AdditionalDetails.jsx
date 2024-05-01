@@ -22,7 +22,7 @@ const cardData = [
 export const AdditionalDetails = () => {
     return (
         <div>
-            <div className='flex justify-between w-[80%] mx-auto my-10'>
+            <div className='flex justify-between w-[80%] mx-auto my-10 flex-wrap gap-5'>
                 {cardData.map((data) => (
                     <Card className="max-w-[400px]">
                         <CardHeader className="flex gap-3">

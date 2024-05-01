@@ -3,8 +3,9 @@ import * as React from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Registration } from './Containers/Registration';
-import { NavBar } from './Containers/NavBar';
+import { NavBar } from './Components/NavBar';
 import { Home } from './Containers/Home';
+import { Footer } from './Components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/registration' element={<Registration />} />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </div>
     </NextUIProvider>
   );
