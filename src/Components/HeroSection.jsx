@@ -41,10 +41,10 @@ export const HeroSection = () => {
     }, []);
 
     return (
-        <div className="w-[100%] h-[450px] bg-gradient-to-r from-blue-950 to-lime-400">
+        <div className="w-[100%] h-[450px]" style={{backgroundImage: "url('https://images.pexels.com/photos/1181343/pexels-photo-1181343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"}}>
             <div className="flex justify-between">
                 <div className="w-[45%] ml-10">
-                    <span class="italic font-bold tracking-wider leading-10 text-4xl text-left flex uppercase bg-gradient-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent mt-[80px]">A single platform where students & teachers can both</span><span className="italic font-bold tracking-wider leading-12 text-4xl text-left flex uppercase bg-gradient-to-r from-green-200 to-lime-700 bg-clip-text text-transparent">{highlightText()}|</span>
+                    <span class="italic font-bold tracking-wider leading-10 text-4xl text-left flex uppercase bg-gradient-to-r from-indigo-300 to-indigo-900 bg-clip-text text-transparent mt-[80px]">A single platform where students & teachers can both</span><span className="italic font-bold tracking-wider leading-12 text-4xl text-left flex uppercase bg-gradient-to-r from-green-300 to-lime-900 bg-clip-text text-transparent">{highlightText()}|</span>
                 </div>
                 <div className="flex gap-2 w-[50%]">
                     <Card className="col-span-12 sm:col-span-4 h-[400px] w-[70%] m-5">
