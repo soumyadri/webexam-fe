@@ -6,3 +6,5 @@ export const hasAllKeys = (obj) => {
     }
     return true;
 }
+
+export const BASE_URL = 'https://web-frontend-b5zt-6nev67a8v-dadsoumyadrigmailcoms-projects.vercel.app';
