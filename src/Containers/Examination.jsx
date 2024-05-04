@@ -159,7 +159,7 @@ export const Examination = () => {
     return (
         <div>
             <QuestionPaperDetails subject={subject} questionData={questionData} />
-            <QuestionList questionData={questionData} />
+            <QuestionList questionData={questionData} setQuestionData={setQuestionData} />
         </div>
     );
 };

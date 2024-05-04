@@ -2,10 +2,10 @@ import React from 'react';
 import { LeftQuestionBar } from './LeftQuestionBar';
 import { RightQuestionStatus } from './RightQuestionStatus';
 
-export const QuestionList = ({questionData}) => {
+export const QuestionList = ({questionData, setQuestionData}) => {
     return (
-        <div className='w-[80%] m-auto bg-slate-100 min-h-[80vh]  flex gap-10'>
-            <LeftQuestionBar questionData={questionData} />
+        <div className='w-[80%] m-auto  min-h-[80vh] flex'>
+            <LeftQuestionBar questionData={questionData} setQuestionData={setQuestionData} />
             <RightQuestionStatus questionData={questionData} />
         </div>
     )
