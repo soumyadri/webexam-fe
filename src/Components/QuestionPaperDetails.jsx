@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, CardBody, Image, Button, Slider } from "@nextui-org/react";
 import ThingsDifferentImage from '../Icons/things_diff.jpg';
+import { useTimer } from '../Hooks/useTimer';
 
 export const QuestionPaperDetails = ({subject, questionData}) => {
+    const { minutes, seconds, trigger } = useTimer();
     return (
         <Card
             isBlurred
@@ -27,7 +29,7 @@ export const QuestionPaperDetails = ({subject, questionData}) => {
                             <div className="flex flex-col gap-0">
                                 <h3 className="font-semibold text-foreground/90 text-large">Subject : {subject}</h3>
                                 <p className="text-small text-foreground/80">Total Questions : {questionData.length}</p>
-                                <h1 className="text-large font-medium mt-2">Time Remaining : 10:00</h1>
+                                <h1 className="text-large font-medium mt-2">Time Remaining : {minutes}:{seconds}</h1>
                             </div>
                         </div>
                     </div>
