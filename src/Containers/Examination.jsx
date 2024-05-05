@@ -140,24 +140,26 @@ export const Examination = () => {
                 ]
             };
             const data = response.data;
-            console.log('Dta', data);
             setQuestionData(data);
             setLoading(false);
         } catch (error) {
-          console.error('Error fetching data:', error);
-          // Handle error gracefully
+            console.error('Error fetching data:', error);
+            setLoading(false);
         }
-      }
+    }
 
     useEffect(() => {
-        if(subject) {
-            setLoading(true);
+        if (subject) {
             fetchSubjectData();
         };
     }, [subject]);
 
+    if (loading) {
+        return <div>Loading ...</div> 
+    }
+
     return (
-        <div>
+        <div className='bg-gradient-to-b from-white to-slate-200'>
             <QuestionPaperDetails subject={subject} questionData={questionData} />
             <QuestionList questionData={questionData} setQuestionData={setQuestionData} />
         </div>

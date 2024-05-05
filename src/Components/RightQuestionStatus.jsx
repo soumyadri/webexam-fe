@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardFooter, Avatar, Button } from "@nextui-
 export const RightQuestionStatus = ({ questionData }) => {
     const answerdQuestion = questionData.filter((question) => question.selected?.length > 0).length;
     return (
-        <Card className="w-[420px] max-h-[500px] m-5 sticky top-20">
+        <Card className="w-[420px] max-h-[500px] m-5 sticky top-[140px]">
             <CardHeader className="justify-between">
                 <div className="flex gap-5">
                     <Avatar isBordered radius="full" size="md" src="https://nextui.org/avatars/avatar-1.png" />
