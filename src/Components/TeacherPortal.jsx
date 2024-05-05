@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { AddQuestionPortal } from "./AddQuestionPortal";
+import { EditQuestionPortal } from "./EditQuestionPortal";
+import { DeleteQuestionPortal } from "./DeleteQuestionPortal";
 // import { AddQuestionP8 } from "./EditQuestionPortal";
 
 export const TeacherPortal = () => {
@@ -36,12 +38,12 @@ export const TeacherPortal = () => {
       {tabClicked === "addQuestion" && (
         <AddQuestionPortal />
       )}
-      {/* {tabClicked === "editQuestion" && (
+      {tabClicked === "editQuestion" && (
         <EditQuestionPortal />
-      )} */}
-      {/* {tabClicked === "deleteQuestion" && (
+      )}
+      {tabClicked === "deleteQuestion" && (
         <DeleteQuestionPortal />
-      )} */}
+      )}
     </div>
   );
 };
