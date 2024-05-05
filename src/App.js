@@ -8,6 +8,8 @@ import { Home } from './Containers/Home';
 import { Footer } from './Components/Footer';
 import { Examination } from './Containers/Examination';
 import { StudentPageContainer } from './Containers/StudentPageContainer';
+import { ResultContainer } from './Containers/ResultContainer';
+import { TeacherContainer } from './Containers/TeacherContainer';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path='/registration' element={<Registration />} />
             <Route path='/examination' element={<Examination />} />
             <Route path='/student-page' element={<StudentPageContainer />} />
+            <Route path='/result' element={<ResultContainer />} />
+            <Route path='/teacher' element={<TeacherContainer />} />
           </Routes>
         </BrowserRouter>
         <Footer />
