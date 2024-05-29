@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardBody } from "@nextui-org/react";
+import { Button, Card, CardBody, Input, Select, SelectItem } from "@nextui-org/react";
 import { getAllQuestions, postApi } from "../api";
 import { timeout } from "../constant";
 import { AlertPopUp } from "./AlertPopup";

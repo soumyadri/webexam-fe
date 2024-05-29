@@ -1,8 +1,7 @@
 import React from "react";
-import { HeroSection } from "../Components/HeroSection";
 import { AdditionalDetails } from "../Components/AdditionalDetails";
+import { HeroSection } from "../Components/HeroSection";
 import Navigator from "../Components/Navigator";
-import { Footer } from "../Components/Footer";
 
 export const Home = () => {
     return (

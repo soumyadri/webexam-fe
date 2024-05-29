@@ -28,13 +28,13 @@ export const DeleteQuestionPortal = () => {
         setAlertState({...alertState, message: "Deleted successfully", state: "success", status: true });
         setTimeout(function() {
             setAlertState({...alertState, status: false});
-        }, timeout);
+        }, 1000);
         getQuestionDetails();
     } else {
       setAlertState({...alertState, message: "Something went wrong", state: "error", status: true });
       setTimeout(function() {
           setAlertState({...alertState, status: false});
-      }, timeout);
+      }, 1000);
     }
   };
 

@@ -1,8 +1,16 @@
+import { Avatar, Button, Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
 import React from 'react';
-import { Card, CardHeader, CardBody, CardFooter, Avatar, Button } from "@nextui-org/react";
+import { useNavigate } from 'react-router-dom';
+import { checkResult } from '../api';
 
 export const RightQuestionStatus = ({ questionData }) => {
-    const answerdQuestion = questionData.filter((question) => question.selected?.length > 0).length;
+    const navigate = useNavigate();
+    const answeredQuestion = questionData.filter((question) => question.selected?.length > 0);
+    const handleSubmitTest = async () => {
+        const data = await checkResult(answeredQuestion);
+        sessionStorage.setItem('result', JSON.stringify(data?.data?.data));
+        navigate('/result');
+    };
     return (
         <Card className="w-[420px] max-h-[500px] m-5 sticky top-[140px]">
             <CardHeader className="justify-between">
@@ -19,8 +27,8 @@ export const RightQuestionStatus = ({ questionData }) => {
                     Question Analysis
                 </p>
                 <div className='flex flex-col text-default-400'>
-                    <span>Answered : {answerdQuestion}</span>
-                    <span>Unanswerd : {questionData.length - answerdQuestion}</span>
+                    <span>Answered : {answeredQuestion.length}</span>
+                    <span>Unanswerd : {questionData.length - answeredQuestion.length}</span>
                 </div>
                 <div className="pt-2 flex flex-wrap">
                     {questionData.map((question, index) => (
@@ -31,7 +39,7 @@ export const RightQuestionStatus = ({ questionData }) => {
                 </div>
             </CardBody>
             <CardFooter className="gap-3">
-                <Button className='w-[100%]' color='primary'>Submit Test</Button>
+                <Button className='w-[100%]' color='primary' onClick={handleSubmitTest}>Submit Test</Button>
             </CardFooter>
         </Card>
     );

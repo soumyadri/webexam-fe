@@ -5,7 +5,7 @@ import RegistrationContext from '../Context/RegistrationContext';
 
 export const Login = () => {
     const { register, formState: { isDirty, isValid } } = useFormContext();
-    const { handleChange, onSubmit, setSelected } = useContext(RegistrationContext);
+    const { handleChange, onSubmit, setSelected, isLoading } = useContext(RegistrationContext);
     return (
         <form className="flex flex-col gap-4">
             <Input isRequired label="Email" placeholder="Enter your email" type="email" onValueChange={(value) => handleChange('email', value)} {...register("email")} />
@@ -24,7 +24,7 @@ export const Login = () => {
                 </Link>
             </p>
             <div className="flex gap-2 justify-end">
-                <Button fullWidth color="primary" onClick={onSubmit} disabled={!isDirty || !isValid}>
+                <Button fullWidth color="primary" onClick={onSubmit} disabled={!isDirty || !isValid} isLoading={isLoading}>
                     Login
                 </Button>
             </div>
