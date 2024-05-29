@@ -38,7 +38,7 @@ export const Examination = () => {
                         "optionC": "Lexical",
                         "optionD": "Literal",
                         "answer": "Lexical",
-                        "credits": 1,
+                        "credits": 2,
                         "__v": 0
                     },
                     {
