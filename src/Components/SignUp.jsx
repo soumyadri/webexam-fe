@@ -5,7 +5,7 @@ import RegistrationContext from '../Context/RegistrationContext';
 
 export const SignUp = () => {
     const { register, formState: { isValid, isDirty } } = useFormContext();
-    const { handleChange, onSubmit, setSelected } = useContext(RegistrationContext);
+    const { handleChange, onSubmit, setSelected, isLoading } = useContext(RegistrationContext);
     return (
         <form className="flex flex-col gap-4">
             <Input isRequired label="Name" placeholder="Enter your name" type="name" onValueChange={(value) => handleChange('name', value)}
@@ -43,12 +43,12 @@ export const SignUp = () => {
             />
             <p className="text-center text-small">
                 Already have an account?{" "}
-                <Link size="sm" onPress={() => setSelected("login")}>
+                <Link size="sm" className='cursor-pointer' onPress={() => setSelected("login")}>
                     Login
                 </Link>
             </p>
             <div className="flex gap-2 justify-end">
-                <Button fullWidth color="primary" onClick={onSubmit} disabled={!isDirty || !isValid}>
+                <Button fullWidth color="primary" onClick={onSubmit} disabled={!isDirty || !isValid}  isLoading={isLoading}>
                     Sign up
                 </Button>
             </div>

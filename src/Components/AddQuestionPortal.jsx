@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-// import { postApi } from "../../api";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import {Select, SelectSection, SelectItem} from "@nextui-org/select";
+import { Select, SelectItem } from "@nextui-org/select";
+import { postApi } from "../api";
+import { AlertPopUp } from "./AlertPopup";
 
 const payload = {
     question: "",
@@ -25,7 +26,6 @@ export const AddQuestionPortal = () => {
     });
 
     const handleChange = (value) => {
-        console.log('Value', value, value.currentKey);
         setSubject(value.currentKey);
     };
 
@@ -35,19 +35,21 @@ export const AddQuestionPortal = () => {
 
     const handleSubmit = async () => {
         if (subject && values && values.question && values.optionA && values.optionB && values.optionC && values.optionD && values.answer && values.credits) {
-            setValues({ ...values, "subject": subject });
-            // const result = await postApi('question/add', values);
-            // if (result?.status == 200) {
-            //     setAlertState({ ...alertState, message: "Success", state: "success", status: true });
-            //     setTimeout(function () {
-            //         setAlertState({ ...alertState, status: false });
-            //     }, 2000);
-            // } else {
-            //     setAlertState({ ...alertState, message: "Something went wrong", state: "error", status: true });
-            //     setTimeout(function () {
-            //         setAlertState({ ...alertState, status: false });
-            //     }, 2000);
-            // }
+            setValues(() => { return {...values, "subject": subject }});
+            const result = await postApi('question/add', { ...values, subject });
+            if (result?.status === 200) {
+                setAlertState({ ...alertState, message: "Question Added successfully", state: "success", status: true });
+                setTimeout(function () {
+                    setAlertState({ ...alertState, status: false });
+                }, 2000);
+                setValues(() => payload);
+                setSubject("html");
+            } else {
+                setAlertState({ ...alertState, message: "Something went wrong", state: "error", status: true });
+                setTimeout(function () {
+                    setAlertState({ ...alertState, status: false });
+                }, 2000);
+            }
         } else {
             setAlertState({ ...alertState, message: "Something went wrong", state: "error", status: true });
             setTimeout(function () {
@@ -58,6 +60,7 @@ export const AddQuestionPortal = () => {
 
     return (
         <div className="w-4/5 h-[88vh] bg-green-400 p-10" style={{ background: "url(https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149056177.jpg?w=996&t=st=1670086998~exp=1670087598~hmac=c4411d56f48724a90164e40d3b5b0ed67270aa6666b9e31dcdfdc1d5f8c9833f)" }}>
+            {alertState.status && <AlertPopUp message={alertState.message} state={alertState.state} />}
             <span className="text-lg font-semibold rounded-lg py-5 px-10 bg-green-100 border-2 border-solid border-blue-400 shadow-lg shadow-blue-200">Add Question</span>
             <div className="bg-slate-200 rounded-lg p-5 grid grid-cols-2 gap-5 py-10 border-2 border-solid border-blue-400">
                 <Select

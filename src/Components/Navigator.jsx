@@ -1,7 +1,7 @@
 import { Button, Card, CardBody, Image } from "@nextui-org/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import FormulaIcon from '../Icons/formula-icon.jpg';
+import FormulaIcon from "../Icons/formula-icon.jpg";
 
 export default function Navigator() {
   const navigate = useNavigate();
@@ -29,8 +29,28 @@ export default function Navigator() {
           <div className="flex flex-col col-span-6 md:col-span-8">
             <div className="flex justify-between items-start">
               <div className="flex flex-col gap-0">
-                <h3 className="text-large font-semibold text-foreground/90 mx-4">As your role is Students, all the best for your exams.</h3>
-                <Button disabled={!user} className="w-[200px] text-large my-8 mx-4" color="primary" onClick={()=>navigate('/student-page')}>Start Exam</Button>
+                <h3 className="text-large font-semibold text-foreground/90 mx-4">
+                  {`As your role is ${user?.role === "teacher" ? 'Teacher' : 'Student'}, ${user?.role === "teacher" ? 'set the question papers' : 'all the best for your exams.'}`}
+                </h3>
+                {user?.role === "teacher" ? (
+                  <Button
+                    disabled={!user}
+                    className="w-[200px] text-large my-8 mx-4"
+                    color="primary"
+                    onClick={() => navigate("/teacher")}
+                  >
+                    Set Questions
+                  </Button>
+                ) : (
+                  <Button
+                    disabled={!user}
+                    className="w-[200px] text-large my-8 mx-4"
+                    color="primary"
+                    onClick={() => navigate("/student-page")}
+                  >
+                    Start Exam
+                  </Button>
+                )}
               </div>
             </div>
           </div>

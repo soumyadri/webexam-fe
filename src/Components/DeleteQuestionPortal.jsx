@@ -24,7 +24,7 @@ export const DeleteQuestionPortal = () => {
 
   const handleQuestionDelete = async (params) => {
     const result = await postApi(`question/delete/${params._id}`);
-    if(result?.status == 200) {
+    if(result?.status === 200) {
         setAlertState({...alertState, message: "Deleted successfully", state: "success", status: true });
         setTimeout(function() {
             setAlertState({...alertState, status: false});
@@ -55,8 +55,8 @@ export const DeleteQuestionPortal = () => {
               allQuestions.map((el, key) => {
                 return (
                   <div className="p-5 flex border-2 border-solid border-blue-50">
+                    <span onClick={() => handleQuestionDelete(el, key)} className="px-2 w-10 py-1 cursor-pointer"><img src="https://img.icons8.com/fluency/512/delete-forever.png" className='w-5 h-5' /></span>
                     <span className="px-2">{key + 1}.</span>
-                    <span onClick={() => handleQuestionDelete(el, key)} className="px-2 w-10 py-1 cursor-pointer"><img src="https://img.icons8.com/fluency/512/delete-forever.png" /></span>
                     <span className="px-2">{el.question}</span>
                   </div>
                 );

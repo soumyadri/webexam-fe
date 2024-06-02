@@ -19,7 +19,7 @@ export const Login = () => {
             />
             <p className="text-center text-small">
                 Need to create an account?{" "}
-                <Link size="sm" onPress={() => setSelected("sign-up")}>
+                <Link size="sm" className='cursor-pointer' onPress={() => setSelected("sign-up")}>
                     Sign up
                 </Link>
             </p>
