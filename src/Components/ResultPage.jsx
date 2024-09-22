@@ -18,7 +18,7 @@ export const ResultPage = () => {
                             <span className="my-1p"> Correct Attempt : <span className="font-semibold">{result?.right || 0}</span></span>
                             <span className="my-1p"> Wrong Attempt : <span className="font-semibold">{result?.wrong || 0}</span></span>
                             <span className="my-1p"> Total Marks : <span className="font-semibold">{result?.marks || 0}</span></span>
-                            <span className="my-1p"> Grade : <span className="font-semibold">{result.status ? 'Pass' : 'Wrong'}</span></span>
+                            <span className="my-1p"> Grade : <span className="font-semibold">{result.status ? 'Pass' : 'Fail'}</span></span>
                         </div>
                     </CardBody>
                 </Card>
